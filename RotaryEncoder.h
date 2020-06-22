@@ -19,10 +19,10 @@
 class RotaryEncoder
 {
 public:
-  enum class Direction { NOROTATION = 0, CLOCKWISE = 1, COUNTERCLOCKWISE = -1};
+  enum class Direction : int8_t { FAST_CCW = -2, COUNTERCLOCKWISE = -1, NOROTATION = 0, CLOCKWISE = 1, FAST_CW = 2 };
 
   // ----- Constructor -----
-  RotaryEncoder(int pin1, int pin2);
+  RotaryEncoder(int8_t pin1, int8_t pin2);		// ShaggyDog - changed type from int to int8_t
   
   // retrieve the current position
   long  getPosition();
@@ -40,7 +40,7 @@ public:
   unsigned long getMillisBetweenRotations() const;
 
 private:
-  int _pin1, _pin2; // Arduino pins used for the encoder. 
+  int8_t _pin1, _pin2; // Arduino pins used for the encoder. // ShaggyDog - changed type from int to int8_t
   
   volatile int8_t _oldState;
   

@@ -21,7 +21,7 @@ const int8_t KNOBDIR[] = {
   0, -1,  1,  0,
   1,  0,  0, -1,
   -1,  0,  0,  1,
-0,  1, -1,  0  };
+  0,  1, -1,  0  };
 
 
 // positions: [3] 1 0 2 [3] 1 0 2 [3]
@@ -32,7 +32,7 @@ const int8_t KNOBDIR[] = {
 
 // ----- Initialization and Default Values -----
 
-RotaryEncoder::RotaryEncoder(int pin1, int pin2) {
+RotaryEncoder::RotaryEncoder(int8_t pin1, int8_t pin2) {	// ShaggyDog - changed type from int to int8_t
   
   // Remember Hardware Setup
   _pin1 = pin1;
@@ -57,22 +57,21 @@ long  RotaryEncoder::getPosition() {
 } // getPosition()
 
 
-RotaryEncoder::Direction RotaryEncoder::getDirection() {
+#define FAST_STEPS 1 
+
+RotaryEncoder::Direction RotaryEncoder::getDirection() {  // ShaggyDog: added Fast rotation detection FAST_CCW, FAST_CW
 
     RotaryEncoder::Direction ret = Direction::NOROTATION;
     
-    if( _positionExtPrev > _positionExt )
-    {
+    if( _positionExtPrev > _positionExt ) {
         ret = Direction::COUNTERCLOCKWISE;
+		if( _positionExt < _positionExtPrev - FAST_STEPS ) ret = Direction::FAST_CCW;
         _positionExtPrev = _positionExt;
-    }
-    else if( _positionExtPrev < _positionExt )
-    {
+    } else if( _positionExtPrev < _positionExt ) {
         ret = Direction::CLOCKWISE;
+		if( _positionExt > _positionExtPrev + FAST_STEPS ) ret = Direction::FAST_CW;
         _positionExtPrev = _positionExt;
-    }
-    else 
-    {
+    } else {
         ret = Direction::NOROTATION;
         _positionExtPrev = _positionExt;
     }        
@@ -92,8 +91,8 @@ void RotaryEncoder::setPosition(long newPosition) {
 
 void RotaryEncoder::tick(void)
 {
-  int sig1 = digitalRead(_pin1);
-  int sig2 = digitalRead(_pin2);
+  int8_t sig1 = digitalRead(_pin1);
+  int8_t sig2 = digitalRead(_pin2);
   int8_t thisState = sig1 | (sig2 << 1);
 
   if (_oldState != thisState) {
