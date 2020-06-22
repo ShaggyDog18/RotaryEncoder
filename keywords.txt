@@ -1,0 +1,31 @@
+#######################################
+# Syntax Coloring Map for RotaryEncoder
+#######################################
+
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+RotaryEncoder	KEYWORD1
+Direction       KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+getPosition	KEYWORD2
+getDirection	KEYWORD2
+setPosition	KEYWORD2
+tick	KEYWORD2
+getMillisBetweenRotations	KEYWORD2
+
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+COUNTERCLOCKWISE	LITERAL1
+FAST_CCW	LITERAL1
+CLOCKWISE	LITERAL1
+FAST_CW	LITERAL1
+NOROTATION	LITERAL1
