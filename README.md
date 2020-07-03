@@ -16,5 +16,5 @@ Modified by **ShaggyDog18@gmail.com**
 ## Change Log
 
 Introduced two new rotation directions detecting fast encoder rotation (still modification is 100% backward compatible with the original library): 
-  `FCCW` - Fast Counterclockwise
-  `FCW`  - Fast Clockwise
+- `FCCW` - Fast Counterclockwise
+- `FCW`  - Fast Clockwise
