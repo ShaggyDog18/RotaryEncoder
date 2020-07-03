@@ -1,8 +1,6 @@
-# RotaryEncoder library
+# RotaryEncoder Library
 
 A library for the Arduino environment for using a rotary encoder as an input.
-
-Here you can find an Arduino compatible library for using rotary encoders.
 
 I was searching a library for using a rotary encoder in my latest project and found a lot of information on this topic but none of the existing libraries did immediately match my expectations so I finally built my own. 
 
@@ -13,4 +11,10 @@ the coding and might be able to adjust it to your needs if you like:
 
 <http://www.mathertel.de/Arduino/RotaryEncoderLibrary.aspx>
 
-There are various aspects when writing a library for rotary encoders and you can also find a lot of the sources I analyzed at the bottom of this article. 
+Modified by **ShaggyDog18@gmail.com**
+
+## Change Log
+
+Introduced two new rotation directions detecting fast encoder rotation (still modification is 100% backward compatible with the original library): 
+  `FCCW` - Fast Counterclockwise
+  `FCW`  - Fast Clockwise
