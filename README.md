@@ -11,10 +11,10 @@ the coding and might be able to adjust it to your needs if you like:
 
 <http://www.mathertel.de/Arduino/RotaryEncoderLibrary.aspx>
 
-Modified by **ShaggyDog18@gmail.com**
+Modified by **ShaggyDog18@gmail.com**, June 2020
 
-## Change Log
+## Modification Log
 
-Introduced two new rotation directions detecting fast encoder rotation (still modification is 100% backward compatible with the original library): 
-- `FCCW` - Fast Counterclockwise
-- `FCW`  - Fast Clockwise
+Introduced two new rotation directions detecting fast encoder rotation. Still, the modified library is 100% backward compatible with the original library: 
+- `FCCW` - Fast Counterclockwise (value of -2)
+- `FCW`  - Fast Clockwise (value of )
