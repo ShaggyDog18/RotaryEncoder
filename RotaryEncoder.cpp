@@ -71,10 +71,10 @@ RotaryEncoder::Direction RotaryEncoder::getDirection() {  // ShaggyDog: added Fa
         ret = Direction::CLOCKWISE;
 		if( _positionExt > _positionExtPrev + FAST_STEPS ) ret = Direction::FAST_CW;
         _positionExtPrev = _positionExt;
-    } else {
-        ret = Direction::NOROTATION;
-        _positionExtPrev = _positionExt;
-    }        
+    } //else {
+        //ret = Direction::NOROTATION;
+        //_positionExtPrev = _positionExt;
+    //}
     
     return ret;
 }
