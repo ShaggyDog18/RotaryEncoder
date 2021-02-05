@@ -52,11 +52,6 @@ RotaryEncoder::RotaryEncoder(int8_t pin1, int8_t pin2) {	// ShaggyDog - changed 
 } // RotaryEncoder()
 
 
-long  RotaryEncoder::getPosition() {
-  return _positionExt;
-} // getPosition()
-
-
 #define FAST_STEPS 1 
 
 RotaryEncoder::Direction RotaryEncoder::getDirection() {  // ShaggyDog: added Fast rotation detection FAST_CCW, FAST_CW
@@ -107,11 +102,4 @@ void RotaryEncoder::tick(void)
     _oldState = thisState;
   } // if
 } // tick()
-
-unsigned long RotaryEncoder::getMillisBetweenRotations() const
-{
-  return _positionExtTime - _positionExtTimePrev; 
-}
-
-
 // End

@@ -25,7 +25,7 @@ public:
   RotaryEncoder(int8_t pin1, int8_t pin2);		// ShaggyDog - changed type from int to int8_t
   
   // retrieve the current position
-  long  getPosition();
+  inline long getPosition() const { return _positionExt; }
   
   // simple retrieve of the direction the knob was rotated at. 0 = No rotation, 1 = Clockwise, -1 = Counter Clockwise
   Direction getDirection();
@@ -37,7 +37,9 @@ public:
   void tick(void);
 
   // Returns the time in milliseconds between the current observed 
-  unsigned long getMillisBetweenRotations() const;
+  inline unsigned long getMillisBetweenRotations() const {
+    return _positionExtTime - _positionExtTimePrev; 
+  }
 
 private:
   int8_t _pin1, _pin2; // Arduino pins used for the encoder. // ShaggyDog - changed type from int to int8_t
