@@ -60,11 +60,11 @@ RotaryEncoder::Direction RotaryEncoder::getDirection() {  // ShaggyDog: added Fa
     
     if( _positionExtPrev > _positionExt ) {
         ret = Direction::COUNTERCLOCKWISE;
-		if( _positionExt < _positionExtPrev - FAST_STEPS ) ret = Direction::FAST_CCW;
+	if( _positionExt < _positionExtPrev - FAST_STEPS ) ret = Direction::FAST_CCW;
         _positionExtPrev = _positionExt;
     } else if( _positionExtPrev < _positionExt ) {
         ret = Direction::CLOCKWISE;
-		if( _positionExt > _positionExtPrev + FAST_STEPS ) ret = Direction::FAST_CW;
+	if( _positionExt > _positionExtPrev + FAST_STEPS ) ret = Direction::FAST_CW;
         _positionExtPrev = _positionExt;
     } //else {
         //ret = Direction::NOROTATION;
